@@ -46,7 +46,6 @@ class OmniCollider:
         client = udp_client.SimpleUDPClient(tx_args.ip, tx_args.port)
 
         if command == "server":
-            print("compiling")
             client.send_message(control, args[0])
         else:
             control_block = [control]
