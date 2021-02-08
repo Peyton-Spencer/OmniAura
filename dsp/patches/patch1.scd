@@ -9,8 +9,8 @@ date: 11/11/20
 Synth function.
 */
 SynthDef.new("tone1", {
-	arg freq=440, lpf_cutoff=1000, hpf_cutoff=1000,
-		amp=0.3, gate=0, bend=0, out=0;
+	arg freq=440, lpf_cutoff=20000, hpf_cutoff=20,
+		amp=0.6, gate=0, bend=0, out=0;
 
 	var sig, sig1, sig2, raw_sig, filter_sig, env;
 
