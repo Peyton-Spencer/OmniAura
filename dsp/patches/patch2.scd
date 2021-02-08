@@ -7,7 +7,7 @@ date: 1/13/21
 Synth function.
 */
 SynthDef.new("tone2", {
-	arg freq, amp=0.3, gate=0, bend=0;
+	arg freq, amp=0.6, gate=0, bend=0;
 	var freq_mod, sig, env;
 	freq_mod = LFNoise0.kr(freq).exprange(200,1000);
 	amp = LFNoise1.kr(freq).exprange(0.01,0.03);

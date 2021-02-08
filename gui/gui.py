@@ -25,8 +25,8 @@ from main import Omni
 
 
 from kivy.core.window import Window
-# Window.fullscreen = 'auto'
-# Window.show_cursor = False
+Window.fullscreen = 'auto'
+Window.show_cursor = False
 
 # Creating the parent class for the screens and
 # defining the functions they will need to share
