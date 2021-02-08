@@ -11,10 +11,8 @@ s.boot;
 
 // Default patch
 ~synth = "tone1";
-~lpf = 0;
-~lpf_cutoff = 1000;
-~hpf = 0;
-~hpf_cutoff = 1000;
+~lpf_cutoff = 20000;
+~hpf_cutoff = 20;
 
 // Set freq to standard Hz
 nil.set(\freq, 880);
@@ -49,20 +47,10 @@ o = OSCFunc( {
 
 		{msg[1] == "filterSel".asSymbol} {
 			if (msg[2] == "lpf".asSymbol) {
-				if (msg[3].asString == "off") {
-					~lpf = 0;
-				}{
-					~lpf = 1;
-					~lpf_cutoff = msg[3].asFloat;
-			    };
+				~lpf_cutoff = msg[3].asFloat;
 			};
 			if (msg[2] == "hpf".asSymbol) {
-				if (msg[3].asString == "off") {
-					~hpf = 0;
-				}{
-					~hpf = 1;
-					~hpf_cutoff = msg[3].asFloat;
-				};
+				~hpf_cutoff = msg[3].asFloat;
 			};
 		}
 
@@ -87,9 +75,7 @@ MIDIdef.noteOn(\noteOnDef, {
 			\amp, vel.linexp(1,127,0.01,0.03),
 			\gate, 1,
 			\bend, ~bend.linlin(0,16383,-2,2),
-			\lpf, ~lpf,
 			\lpf_cutoff, ~lpf_cutoff,
-			\hpf, ~hpf,
 			\hpf_cutoff, ~hpf_cutoff,
 		]
 	);
