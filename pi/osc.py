@@ -38,7 +38,7 @@ class OmniCollider:
 
     def transmit(self, command, control, *args):
         port = 57120
-        if (command == "server"): ip = 57110
+        if (command == "server"): port = 57110
         tx = argparse.ArgumentParser()
         tx.add_argument("--ip", default="127.0.0.1", help="osc default ip")
         tx.add_argument("--port", type=int, default=port, help="supercollider rx osc port")

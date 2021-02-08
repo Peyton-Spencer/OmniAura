@@ -8,6 +8,7 @@ Python 3.7.x
 """
 
 import numpy as np
+import os
 
 # used for grabbing all midi data (in parallel with supercollider)
 from pi.midi import OmniMidi
@@ -37,10 +38,13 @@ class Omni():
 
     # compiles all synthDef's in dsp folder.
     def sc_compile(self):
-        command = "server"
-        control = "/d_loadDir"
-        dsp_dir = "patches"
-        self.sc.transmit(command, control, dsp_dir)
+        command = "/omni"
+        control = "compile"
+        directory = "dsp/patches/"
+        for patch in os.listdir(directory):
+            filedir = directory + patch
+            path = os.path.abspath(filedir).replace("\\", "/")
+            self.sc.transmit(command, control, path)
 
     # turns on / off synthDef's from SC
     def synth_sel(self, synth_name):
@@ -55,8 +59,10 @@ class Omni():
 
 
 if __name__ == "__main__":
+    
     OmniSynth = Omni() # initialize Omni class.
-    # OmniSynth.sc_compile()
+    OmniSynth.sc_compile() # compiles all synthDef's 
+
     OmniSynth.synth_sel("tone1")
     OmniSynth.filter_sel("lpf", 20000)
     OmniSynth.filter_sel("hpf", 20)

@@ -54,6 +54,10 @@ o = OSCFunc( {
 			};
 		}
 
+		{msg[1] == "compile".asSymbol} {
+			msg[2].asString.load;
+		}
+
 		{true} {~synth = "tone1"};
 
 	~notes = Array.newClear(128);
