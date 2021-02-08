@@ -7,7 +7,7 @@ date: 1/21/21
 Synth function.
 */
 SynthDef.new(\tone5, {
-	arg freq=440, amp=0.3, gate=0, bend=0;
+	arg freq=440, amp=0.6, gate=0, bend=0;
 	var sig, sig1, sig2, env;
 	sig1 = Spring.ar(Formant.ar(freq * bend.midiratio, 500,200), 1, 0.5)!2; /* !1 mono, !2 stereo...*/
 	sig2 = Ball.ar(SinOsc.ar(freq * bend.midiratio, 500,200), 0.2, 0.5)!2;
