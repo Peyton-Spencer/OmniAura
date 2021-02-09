@@ -763,10 +763,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm317.pdf" H 6250 5650 50  0001 C CNN
 	1    6250 5650
 	1    0    0    -1  
 $EndComp
-Text Label 5400 5650 0    50   ~ 0
-+12
-Text Label 5400 8250 0    50   ~ 0
--12
 Text Notes 4200 7450 2    50   ~ 0
 Power_input
 $Comp
@@ -1038,10 +1034,6 @@ Wire Wire Line
 Connection ~ 6250 7900
 Wire Wire Line
 	6250 7500 6250 7450
-Text Label 4750 7250 0    50   ~ 0
-+12
-Text Label 4750 7550 0    50   ~ 0
--12
 $Comp
 L power:GND #PWR?
 U 1 1 6022ADB8
@@ -1055,8 +1047,6 @@ F 3 "" H 5100 7450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4750 7450 5100 7450
-Text Label 4750 7350 0    50   ~ 0
-+5MCU
 $Comp
 L Device:C C?
 U 1 1 6022ADC0
@@ -1109,23 +1099,12 @@ Connection ~ 14800 12950
 $Comp
 L Connector:AudioJack2_Ground J?
 U 1 1 602102C1
-P 20400 7450
-F 0 "J?" H 20220 7468 50  0000 R CNN
-F 1 "AudioJack2_Ground" H 20220 7377 50  0000 R CNN
-F 2 "" H 20400 7450 50  0001 C CNN
-F 3 "~" H 20400 7450 50  0001 C CNN
-	1    20400 7450
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector:AudioJack2_Ground J?
-U 1 1 602145F4
-P 20400 7950
-F 0 "J?" H 20220 7968 50  0000 R CNN
-F 1 "AudioJack2_Ground" H 20220 7877 50  0000 R CNN
-F 2 "" H 20400 7950 50  0001 C CNN
-F 3 "~" H 20400 7950 50  0001 C CNN
-	1    20400 7950
+P 20250 9100
+F 0 "J?" H 20070 9118 50  0000 R CNN
+F 1 "AudioJack2_Ground" H 20070 9027 50  0000 R CNN
+F 2 "" H 20250 9100 50  0001 C CNN
+F 3 "~" H 20250 9100 50  0001 C CNN
+	1    20250 9100
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -1139,8 +1118,6 @@ F 3 "" H 13100 3750 50  0001 C CNN
 	1    13500 3550
 	1    0    0    -1  
 $EndComp
-Text Label 14600 4500 0    50   ~ 0
-+5MCU
 $Comp
 L power:GND #PWR?
 U 1 1 601D6CDD
@@ -1185,8 +1162,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm337-n.pdf" H 6250 4100 50  0001 C CNN
 	1    6250 4100
 	1    0    0    -1  
 $EndComp
-Text Label 5400 4100 0    50   ~ 0
--12
 Connection ~ 5750 4100
 Wire Wire Line
 	5750 4100 5950 4100
@@ -1339,13 +1314,7 @@ Wire Wire Line
 Text GLabel 7650 4100 2    50   Input ~ 0
 -5V
 Wire Wire Line
-	9600 4100 7650 4100
-Connection ~ 7650 4100
-Wire Wire Line
 	9600 4200 8950 4200
-Wire Wire Line
-	7600 4200 7600 5650
-Connection ~ 7600 5650
 Wire Wire Line
 	10500 4200 10600 4200
 Text Notes 8300 2500 0    50   ~ 0
@@ -1361,8 +1330,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/cd4052b.pdf" H 10230 6900 50  0001 C CNN
 	1    10250 6800
 	1    0    0    -1  
 $EndComp
-Text Label 10600 4200 0    50   ~ 0
-+5MCU
 Wire Wire Line
 	11150 4300 11150 3800
 Wire Wire Line
@@ -1380,13 +1347,69 @@ Wire Wire Line
 	8950 4200 8950 3900
 Wire Wire Line
 	8950 3900 9600 3900
-Connection ~ 8950 4200
-Wire Wire Line
-	8950 4200 7600 4200
 Wire Wire Line
 	10750 6600 11250 6600
 Wire Wire Line
-	11250 6600 11250 13300
-Wire Wire Line
 	11250 13300 11900 13300
+Text Notes 20000 9600 0    50   ~ 0
+Analog Sound output
+Wire Wire Line
+	11250 6600 11250 13300
+$Comp
+L Amplifier_Operational:TL072 U1
+U 1 1 6022EA93
+P 18950 9100
+F 0 "U1" H 18950 9467 50  0000 C CNN
+F 1 "TL072" H 18950 9376 50  0000 C CNN
+F 2 "" H 18950 9100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 18950 9100 50  0001 C CNN
+	1    18950 9100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL072 U1
+U 3 1 6023EABE
+P 19700 7500
+F 0 "U1" H 19658 7546 50  0000 L CNN
+F 1 "TL072" H 19658 7455 50  0000 L CNN
+F 2 "" H 19700 7500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 19700 7500 50  0001 C CNN
+	3    19700 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL072 U1
+U 2 1 6025C5CA
+P 18950 9750
+F 0 "U1" H 18950 10117 50  0000 C CNN
+F 1 "TL072" H 18950 10026 50  0000 C CNN
+F 2 "" H 18950 9750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 18950 9750 50  0001 C CNN
+	2    18950 9750
+	1    0    0    -1  
+$EndComp
+Text GLabel 4750 7250 2    50   Input ~ 0
++12V
+Text GLabel 4750 7550 2    50   Input ~ 0
+-12V
+Text GLabel 5150 7350 2    50   Input ~ 0
++5Digital
+Wire Wire Line
+	4750 7350 5150 7350
+Text GLabel 10600 4200 2    50   Input ~ 0
++5Digital
+Text GLabel 14900 4500 2    50   Input ~ 0
++5Digital
+Wire Wire Line
+	14600 4500 14900 4500
+Text GLabel 5400 8250 0    50   Input ~ 0
+-12V
+Text GLabel 5400 5650 0    50   Input ~ 0
++12V
+Text GLabel 5400 4100 0    50   Input ~ 0
+-12V
+Text GLabel 9600 4100 0    50   Input ~ 0
+-5V
+Text GLabel 8950 3900 0    50   Input ~ 0
++5V
 $EndSCHEMATC
